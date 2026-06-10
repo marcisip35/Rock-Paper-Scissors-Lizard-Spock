@@ -16,21 +16,32 @@ import PrivacyPolicy from "./PrivacyPolicy";
 const skinOptions = [
   {
     name: "Default",
-    skins: ["🖐️", "✌️", "👊", "🦎", "🖖"],
+    skins: ["👊", "🖐️", "✌️", "🦎", "🖖"],
   },
   {
     name: "Light Skin",
-    skins: ["✋🏻", "✌🏻", "👊🏻", "🦖", "🖖🏻"],
+    skins: ["👊🏻", "✋🏻", "✌🏻", "🦖", "🖖🏻"],
   },
   {
     name: "Medium Skin",
-    skins: ["✋🏼", "✌🏼", "👊🏼", "🦕", "🖖🏼"],
+    skins: ["👊🏼", "✋🏼", "✌🏼", "🦕", "🖖🏼"],
   },
   {
     name: "Dark Skin",
-    skins: ["✋🏾", "✌🏾", "👊🏾", "🐊", "🖖🏾"],
+    skins: ["👊🏾", "✋🏾", "✌🏾", "🐊", "🖖🏾"],
   },
 ];
+
+const moves = {
+  moveName: ["rock", "paper", "scissors", "lizard", "spock"],
+  moveRules: [
+    "Rock beats scissors and lizard",
+    "Paper beats rock and spock",
+    "Scissors beats paper and lizard",
+    "Lizard beats paper and spock",
+    "Spock beats rock and scissors",
+  ],
+};
 
 function App() {
   /* state for selected skins */
@@ -43,7 +54,10 @@ function App() {
         selectedSkins={selectedSkins}
         setSelectedSkins={setSelectedSkins}
       />
-      <SelectedSkins selectedSkins={selectedSkins} />
+      <SelectedSkins
+        selectedSkins={selectedSkins}
+        moveRules={moves.moveRules}
+      />
       <PrivacyPolicy />
     </div>
   );
