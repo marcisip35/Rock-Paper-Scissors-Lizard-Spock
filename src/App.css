@@ -1,0 +1,52 @@
+* {
+    font-family: sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#root {
+    height: 100vh;
+    width: 800px;
+}
+
+body {
+    background-image: url(./assets/background.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: gray;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Menu */
+.menu {
+    color: rgb(245, 245, 245);
+    font-size: 30px;
+}
+
+.menu button {
+    background-color: rgb(10, 10, 10);
+    opacity: 0.9;
+    border: 5px solid black;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.menu button:hover {
+    border: 5px solid white;
+    transform: scale(1.2);
+}
+
+/* Skin Selection */
+.selectSkin {
+    padding: 10px;
+}
+
+.selectSkin:hover {
+    padding: 8px;
+    cursor: pointer;
+    border: 2px solid white;
+}
