@@ -50,3 +50,8 @@ button {
     cursor: pointer;
     border: 2px solid white;
 }
+
+/* Bot Game */
+.botGame button:hover {
+    border: 2px solid white;
+}
