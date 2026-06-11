@@ -1,6 +1,8 @@
 import { useState } from "react";
+import GameCorner from "./GameCorner";
+import PickAMove from "./PickAMove";
 
-function BotGame({ setScreen }) {
+function BotGame({ setScreen, selectedSkins }) {
   const [modal, setModal] = useState(false);
 
   function toggleModal() {
@@ -15,6 +17,15 @@ function BotGame({ setScreen }) {
       >
         <p className="text-white text-2xl">Rock Paper Scissors Lizard Spock</p>
         <div></div>
+
+        {/* Bot Corner */}
+        <GameCorner id="botCorner" />
+
+        {/* Player Corner */}
+        <GameCorner id="playerCorner" />
+
+        {/* Pick A Move */}
+        <PickAMove selectedSkins={selectedSkins} />
 
         <button
           onClick={toggleModal}

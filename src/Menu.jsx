@@ -45,7 +45,7 @@ function Menu({ skinOptions, selectedSkins, setSelectedSkins }) {
 
     /* Play Against A Bot */
   } else if (screen === "bot") {
-    return <BotGame setScreen={setScreen} />;
+    return <BotGame setScreen={setScreen} selectedSkins={selectedSkins} />;
 
     /* Play Against A Real Player */
   } else if (screen === "online") {
