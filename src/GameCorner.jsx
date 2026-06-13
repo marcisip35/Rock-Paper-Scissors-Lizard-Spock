@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function GameCorner({ id }) {
+function GameCorner({ id, name }) {
   return (
     <div className="gameCorners" id={id}>
-      <p>You played Rock!</p>
+      <p>{name}</p>
       <span>👊</span>
       <ul className="flex gap-5">
         <li>W</li>

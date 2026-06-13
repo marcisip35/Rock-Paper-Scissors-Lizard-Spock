@@ -1,6 +1,8 @@
 import { useState } from "react";
 import GameCorner from "./GameCorner";
 import PickAMove from "./PickAMove";
+import ForfeitButton from "./ForfeitButton";
+import ForfeitModal from "./ForfeitModal";
 
 function BotGame({ setScreen, selectedSkins }) {
   const [modal, setModal] = useState(false);
@@ -19,33 +21,24 @@ function BotGame({ setScreen, selectedSkins }) {
         <div></div>
 
         {/* Bot Corner */}
-        <GameCorner id="botCorner" />
+        <GameCorner id="botCorner" name="Bot Player" />
 
         {/* Player Corner */}
-        <GameCorner id="playerCorner" />
+        <GameCorner id="playerCorner" name="Player One" />
 
         {/* Pick A Move */}
         <PickAMove selectedSkins={selectedSkins} />
 
-        <button
-          onClick={toggleModal}
-          className="bg-black p-2 rounded-2xl text-xl border-2 border-black text-red-500"
-          id="forfeit-button"
-        >
-          Forfeit
-        </button>
+        {/* Forfeit Button */}
+        <ForfeitButton setModal={setModal} toggleModal={toggleModal} />
       </div>
 
-      {/* Modal */}
-      <div className={`overlay ${modal === false ? "hidden" : ""}`}>
-        <div className="modal-content">
-          <p>Are you sure you want to quit?</p>
-          <div className="flex justify-center gap-30">
-            <button onClick={() => setScreen("menu")}>Yes</button>
-            <button onClick={toggleModal}>No</button>
-          </div>
-        </div>
-      </div>
+      {/* Forfeit Modal */}
+      <ForfeitModal
+        setScreen={setScreen}
+        modal={modal}
+        toggleModal={toggleModal}
+      />
     </>
   );
 }

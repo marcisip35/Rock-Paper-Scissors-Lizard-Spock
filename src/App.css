@@ -70,19 +70,24 @@ button {
 
 #forfeit-button {
     margin-left: auto;
-    width: 150px;
+    width: 120px;
+    transition: 0.1s;
 }
 
 #forfeit-button:hover {
-    border: 2px solid red;
+    background-color: red;
+    color: white;
+    transition: 0.1s;
 }
 
 /* corners */
 .gameCorners {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #botCorner {
@@ -102,7 +107,7 @@ button {
 }
 
 #pickAMove {
-    height: 150px;
+    height: 100px;
     position: fixed;
     right: 20px;
     bottom: 100px;
