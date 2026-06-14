@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GameCorner from "./GameCorner";
 import PickAMove from "./PickAMove";
 import ForfeitButton from "./ForfeitButton";
 import ForfeitModal from "./ForfeitModal";
+import ResultMessage from "./ResultMessage";
 
 function BotGame({ setScreen, selectedSkins }) {
   const [modal, setModal] = useState(false);
+  /* Display the selected skin */
+  const [selectedSkin, setSelectedSkin] = useState(selectedSkins[0]);
+  /* Saves the selected move */
+  const [selectedMove, setSelectedMove] = useState(0);
+  /* Timer */
+  const [timeLeft, setTimeLeft] = useState(4);
+  useEffect(() => {
+    if (timeLeft === 0) {
+      console.log(`The player has played ${selectedMove}.`);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [timeLeft]);
 
   function toggleModal() {
     setModal(!modal);
@@ -18,7 +37,8 @@ function BotGame({ setScreen, selectedSkins }) {
         id="botGame"
       >
         <p className="text-white text-2xl">Rock Paper Scissors Lizard Spock</p>
-        <div></div>
+        {/* Result Message */}
+        <ResultMessage outcome={"You Won"} />
 
         {/* Bot Corner */}
         <GameCorner id="botCorner" name="Bot Player" />
@@ -27,7 +47,13 @@ function BotGame({ setScreen, selectedSkins }) {
         <GameCorner id="playerCorner" name="Player One" />
 
         {/* Pick A Move */}
-        <PickAMove selectedSkins={selectedSkins} />
+        <PickAMove
+          selectedSkin={selectedSkin}
+          setSelectedSkin={setSelectedSkin}
+          selectedSkins={selectedSkins}
+          setSelectedMove={setSelectedMove}
+          timeLeft={timeLeft}
+        />
 
         {/* Forfeit Button */}
         <ForfeitButton setModal={setModal} toggleModal={toggleModal} />

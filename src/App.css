@@ -106,11 +106,13 @@ button {
     height: 300px;
 }
 
+/* Pick A Move */
 #pickAMove {
-    height: 100px;
+    height: 200px;
     position: fixed;
     right: 20px;
     bottom: 100px;
+    cursor: pointer;
 
     display: flex;
     flex-direction: column;
@@ -118,7 +120,21 @@ button {
     justify-content: space-between;
 }
 
-/* modal */
+#selectMove {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#selectMove:hover {
+    background-color: white;
+    transition: 0.2s;
+}
+
+.selectedMove {
+    background-color: white;
+}
+
+/* Forfeit Modal */
 .overlay {
     position: fixed;
     inset: 0;
@@ -149,4 +165,12 @@ button {
 
 .modal-content button:nth-child(2):hover {
     color: green;
+}
+
+/* Result Message */
+#result-message {
+    position: fixed;
+    top: 150px;
+    left: 120px;
+    font-size: 40px;
 }
